@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:scanner="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
+             x:Class="Trial_App_2.Pages.BasicFeatures.Pages.BarCode.BarCodeScanner">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Start Scanning" Clicked="scan"/>
+            <scanner:CameraView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" OnDetected="CameraView_OnDetected" Grid.Row="1"
+                                VibrationOnDetected="False" ScanInterval="600" x:Name="Camera" IsVisible="false"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

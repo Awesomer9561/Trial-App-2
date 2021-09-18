@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Trial_App_2.ViewModel"
+             x:Class="Trial_App_2.Pages.BasicFeatures.BasicFeatures">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20,0"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewmodels:BasicFeaturesVM/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Button Text="Open Calender" Command="{Binding _Calender}"/>
+            <Button Text="Voice Recorder" Command="{Binding _Recorder}"/>
+            <Button Text="Bar Code Scanner" Command="{Binding _Barcode}"/>
+            <Button Text="Fingerprint Scanner" Command="{Binding _Fingerprint}"/>
+            <Button Text="Play Media" Command="{Binding _Mediaplayer}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

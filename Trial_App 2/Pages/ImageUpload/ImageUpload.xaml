@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trial_App_2.Pages.ImageUpload.ImageUpload"
+             xmlns:viewmodel="clr-namespace:Trial_App_2.ViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodel:ImageUploadVM/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Frame WidthRequest="300" HeightRequest="300" BackgroundColor="White" Padding="0">
+                    <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="300" WidthRequest="300"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding _SelectFile}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <ActivityIndicator IsVisible="{Binding isLoading}" IsRunning="{Binding isLoading}"/>
+            </Grid>
+
+            <Grid VerticalOptions="EndAndExpand" ColumnDefinitions="*,*" HeightRequest="60">
+                <Button Text="Select image" Grid.Column="0" Command="{Binding _SelectFile}"/>
+                <Button Text="Upload image" Grid.Column="1" Command="{Binding _UploadFile}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

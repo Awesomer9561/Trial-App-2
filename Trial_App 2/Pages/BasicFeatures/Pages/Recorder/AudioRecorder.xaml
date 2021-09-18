@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Trial_App_2.Pages.BasicFeatures.Pages.Recorder"
+             xmlns:animation="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Trial_App_2.Pages.BasicFeatures.Pages.Recorder.AudioRecorder">
+
+    <ContentPage.BindingContext>
+        <viewmodel:AudioRecorderViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="ImageButton">
+            <Setter Property="HeightRequest" Value="30"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="Margin" Value="10,0"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,*,auto">
+            <Label Text="Audio Recorder" HorizontalOptions="CenterAndExpand" FontSize="25" FontAttributes="Bold" Margin="20"/>
+
+            <animation:AnimationView Grid.Row="1" Animation="recording.json" AutoPlay="True" IsVisible="{Binding IsPlaying}" RepeatMode="Infinite"/>
+
+            <StackLayout IsVisible="true" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Grid.Row="2" VerticalOptions="End" Margin="20">
+                <ImageButton Source="record" Command="{Binding Record}"/>
+                <ImageButton Source="stop" Command="{Binding Stop}"/>
+                <ImageButton Source="play" Command="{Binding Play}"/>
+                <ImageButton Source="pause" Command="{Binding Pause}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
